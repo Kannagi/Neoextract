@@ -184,7 +184,7 @@ void neogeo_extract(int argc, char** argv)
             }
         }
 
-        if(n == 128) break;
+        //if(n == 128) break;
     }
 
 
