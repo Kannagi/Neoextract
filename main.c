@@ -10,7 +10,7 @@
 #undef main
 #endif
 
-void neogeo_extract();
+void neogeo_extract(int argc, char** argv);
 void neogeo_extract_fix(int argc, char** argv);
 
 
@@ -39,18 +39,23 @@ void neogeo_extract(int argc, char** argv)
     char chaine[100];
     SDL_Rect position;
 
+
+
     if(argc == 1)
     {
         file1 = fopen("052-c1.bin","rb");
         file2 = fopen("052-c2.bin","rb");
     }else
     {
+
         ok = 0;
         strcpy(chaine,argv[1]);
+
         i = 0;
         while(argv[1][i] != 0)
         {
-            if(argv[1][i] == 'c' && argv[1][i+1] == '0')
+            printf("%c",argv[1][i]);
+            if(argv[1][i] == 'c' && argv[1][i+1] == '1')
             {
                 chaine[i+1] = '2';
                 ok = 1;
@@ -83,6 +88,8 @@ void neogeo_extract(int argc, char** argv)
         file1 = fopen(argv[1],"rb");
         file2 = fopen(chaine,"rb");
     }
+
+
 
     if(file1 == NULL || file2 == NULL)
     {
